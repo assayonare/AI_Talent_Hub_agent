@@ -4,11 +4,11 @@ import re
 import requests
 from dotenv import load_dotenv
 
-# Load secret
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Убедитесь, что у вас есть API-ключ для Together API
+
 OPENAI_URL = "https://api.together.xyz/v1/chat/completions"
 
 
@@ -32,12 +32,12 @@ def get_together_answer(query):
         print(f"Error decoding JSON response: {e}")
         return None, None
 
-    # Извлекаем ответ
+    
     answer_text = (
         response_json.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
     )
 
-    # Попытка извлечь номер правильного ответа
+    
     match = re.search(r"\b([1-9]|10)\b", answer_text)
     answer = int(match.group(1)) if match else None
 
