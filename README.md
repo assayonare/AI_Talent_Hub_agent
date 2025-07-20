@@ -1,4 +1,4 @@
-# ITMO
+# AI agent within the framework of ITMO MegaSchool
 
 ## Start app
 
